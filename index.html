@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="استمارة التقديم الإلكترونية لقسم شؤون الطلبة والتسجيل للعام الدراسي 2025-2026">
+    <meta name="keywords" content="تسجيل طلبة, جامعة, تعليم عالي, قبول طلبة, استمارة تقديم">
+    <meta name="author" content="قسم شؤون الطلبة والتسجيل">
+    <title>استمارة التقديم - قسم شؤون الطلبة والتسجيل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="icon" href="2.jpeg" type="image/jpeg">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-weight: bolder; }
+        body { background: linear-gradient(135deg, #5776a4 0%, #24573f 100%); padding: 20px; min-height: 100vh; display:flex; justify-content:center; align-items:center; color:#333; font-size:16px; line-height:1.6; }
+        select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 0l6 6 6-6z' fill='%23555'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 15px center; background-size:12px 6px; padding-right:40px !important; position:relative; z-index:99999; -webkit-tap-highlight-color: transparent; }
+        .container { width:100%; max-width:800px; margin:20px auto; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.15); overflow:hidden; background:white; }
+        
+        /* تصميم الهيدر الجديد */
+        .header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #853452;
+            color: #fff;
+            padding: 15px 25px;
+            border-bottom: 5px solid #3f4d0b;
+            position: relative;
+        }
+        .logo-left, .logo-right {
+            flex: 0 0 auto;
+        }
+        .university-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 10%;
+        }
+        .header-text {
+            flex: 1;
+            text-align: center;
+            padding: 0 15px;
+        }
+        .header-text h1 {
+            font-family: 'Satisfy', serif;
+            font-weight: bolder;
+            margin: 5px 0;
+            font-size: 24px;
+        }
+        .header-text p {
+            font-family: 'Satisfy', serif;
+            font-weight: bolder;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        
+        .form-container{ position:relative; z-index:1; background:white; border-radius:0 0 15px 15px; overflow:visible; padding:30px; }
+        .form-container::after{ content:""; position:absolute; inset:0; background:url("3.jpg") center center / cover no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='10' cy='20' r='3' fill='%232c3e50' fill-opacity='0.08'/%3E%3Ccircle cx='58' cy='43' r='3' fill='%232c3e50' fill-opacity='0.08'/%3E%3Ccircle cx='30' cy='63' r='2' fill='%232c3e50' fill-opacity='0.08'/%3E%3C/svg%3E"); opacity:0.1; z-index:0; pointer-events:none; }
+        .form-section{ margin-bottom:25px; padding-bottom:20px; border-bottom:1px dashed #6f0e0e; }
+        .section-title{ background:#c5b7bc; padding:12px 15px; margin-bottom:20px; border-right:5px solid #3f4d0b; font-weight:bold; color:#2c3e50; border-radius:4px; font-size:18px; }
+        .form-group{ display:flex; margin-bottom:20px; align-items:center; transition:box-shadow 0.25s ease, border-color 0.25s ease; }
+        .form-group label{ width:35%; font-weight:600; color:#2c3e50; font-size:16px; }
+        .form-group input, .form-group select, .form-group textarea{ width:100%; padding:12px 15px; border:1px solid #461ecc; border-radius:6px; font-size:16px; transition:all 0.3s ease; position:relative; z-index:2; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus{ outline:none; border-color:#3498db; box-shadow:0 0 0 3px rgba(52,152,219,0.12); }
+        .form-group.focused{ box-shadow:0 6px 14px rgba(0,0,0,0.06); }
+        
+        /* تحسين تنسيق أزرار الاختيار لجميع الأجهزة */
+        .radio-group-container {
+            width: 100%;
+        }
+        .radio-group{ 
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .radio-option{ 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .radio-option input[type="radio"] { 
+            margin: 0;
+            width: 18px;
+            height: 18px;
+        }
+        .radio-option label { 
+            width: auto;
+            margin: 0;
+            font-weight: normal;
+            font-size: 16px;
+        }
+        
+        .college-row{ display:flex; gap:15px; width:100%; margin-bottom:15px; }
+        .college-select{ flex:1; min-width:0; }
+        .btn-container{ text-align:center; margin-top:30px; }
+        .submit-btn{ background:#3498db; color:white; border:none; padding:15px 40px; font-size:18px; border-radius:50px; cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 10px rgba(52,152,219,0.3); min-height:50px; }
+        .submit-btn:hover{ background:#0b874b; transform:translateY(-2px); box-shadow:0 6px 15px rgba(52,152,219,0.4); }
+        .notification{ position:fixed; top:20px; right:20px; padding:15px 25px; color:white; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.2); transform:translateX(150%); transition:transform 0.4s ease; z-index:1000; font-size:16px; max-width:80%; text-align:center; display:flex; align-items:center; gap:10px; }
+        .notification.show{ transform:translateX(0); }
+        .notification.success{ background:#27ae60; border-left:5px solid #1e8449; }
+        .notification.error{ background:#e74c3c; border-left:5px solid #c0392b; }
+        .notification.warning{ background:#f39c12; border-left:5px solid #d35400; }
+        .loading{ display:none; text-align:center; margin-top:15px; }
+        .loading-spinner{ border:4px solid #f3f3f3; border-top:4px solid #3498db; border-radius:50%; width:30px; height:30px; animation:spin 1s linear infinite; margin:0 auto; }
+        @keyframes spin{ 0%{ transform:rotate(0deg);}100%{ transform:rotate(360deg);} }
+        .footer_section{ font-weight:500; display:flex; justify-content:center; padding:20px; background-color:#fbf9f9; }
+        .footer_section p{ color:rgba(12,12,88,0.7); margin:0; text-align:center; }
+        .footer_section a{ color:rgba(17,17,108,0.7); }
+        
+        /* تحسينات خاصة لأجهزة iOS */
+        @supports (-webkit-touch-callout: none) {
+            .radio-group {
+                gap: 15px;
+                justify-content: space-between;
+            }
+            .radio-option {
+                flex: 0 0 auto;
+                padding: 8px 12px;
+                background-color: #f8f9fa;
+                border-radius: 6px;
+                border: 1px solid #e9ecef;
+            }
+            .form-group .radio-group {
+                margin-top: 5px;
+            }
+        }
+        
+        @media (max-width:768px){ 
+            body{ padding:10px; font-size:14px; } 
+            .container{ margin:10px auto; border-radius:10px; } 
+            .header { 
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .logo-left, .logo-right {
+                margin: 10px 0;
+            }
+            .university-logo {
+                height: 60px;
+            }
+            .header-text h1 {
+                font-size: 20px;
+            }
+            .header-text p {
+                font-size: 16px;
+            }
+            .form-container{ padding:20px 15px; } 
+            .form-group{ 
+                flex-direction: column; 
+                align-items: flex-start; 
+            } 
+            .form-group label{ 
+                width: 100%; 
+                margin-bottom: 8px; 
+                font-size: 15px; 
+            } 
+            .form-group input, .form-group select, .form-group textarea{ 
+                width: 100%; 
+                font-size: 15px; 
+                padding: 10px 12px; 
+            } 
+            .radio-group{ 
+                flex-direction: row; 
+                gap: 15px; 
+                width: 100%; 
+                justify-content: flex-start;
+            } 
+            .radio-option{ 
+                flex: 0 0 auto; 
+                justify-content: flex-start; 
+            }
+            .section-title{ font-size:17px; padding:10px 12px; } 
+            .college-row{ flex-direction:column; gap:10px; } 
+            .submit-btn{ padding:12px 30px; font-size:16px; width:100%; max-width:300px; } 
+            .notification{ top:10px; right:10px; left:10px; max-width:none; font-size:14px; padding:12px 20px; } 
+            
+            /* تحسينات خاصة للهواتف iOS */
+            @supports (-webkit-touch-callout: none) {
+                .radio-group {
+                    flex-direction: row;
+                    gap: 10px;
+                    justify-content: space-between;
+                }
+                .radio-option {
+                    flex: 0 0 48%;
+                    justify-content: center;
+                    padding: 10px 5px;
+                }
+            }
+        }
+        @media (max-width:480px){ 
+            body{ font-size:13px; } 
+            .header-text h1{ font-size:18px; } 
+            .header-text p{ font-size:14px; } 
+            .form-group label{ font-size:14px; } 
+            .form-group input, .form-group select, .form-group textarea{ font-size:14px; } 
+            .section-title{ font-size:16px; } 
+            .submit-btn{ font-size:15px; } 
+            
+            /* تحسينات إضافية للهواتف صغيرة الحجم */
+            .radio-group {
+                gap: 8px;
+            }
+            .radio-option label {
+                font-size: 14px;
+            }
+            
+            @supports (-webkit-touch-callout: none) {
+                .radio-group {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .radio-option {
+                    flex: 1;
+                    width: 100%;
+                    padding: 8px 12px;
+                    justify-content: flex-start;
+                }
+            }
+        }
+        @media (min-width:1200px){ .container{ max-width:900px; } }
+        input:focus, select:focus, textarea:focus, button:focus{ outline:2px solid #3498db; outline-offset:2px; }
+        html.is-ios select{ -webkit-appearance: menulist-button !important; appearance: menulist-button !important; }
+        :not(html.is-ios) select{ -webkit-appearance:none; appearance:none; }
+        select{ position:relative; z-index:99999; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر الجديد -->
+        <div class="header">
+            <div class="logo-left">
+                <img src="1.jpeg" alt="شعار جامعة المصطفى" class="university-logo">
+            </div>
+            
+            <div class="header-text">
+                <h1>جـــــامــــعــة المــــصــطــفـــى</h1>
+                <h1>قسم شؤون الطلبة والتسجيل</h1>
+                <p>استمارة التقديم العام الدراسي (2025-2026)</p>
+            </div>
+            
+            <div class="logo-right">
+                <img src="2.jpeg" alt="شعار جامعة المصطفى" class="university-logo">
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="studentForm">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label style="font-family: Satisfy, serif; font-weight: bolder; color:rgb(8, 81, 123)" for="name">الاسم الرباعي</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-family: Satisfy, serif; font-weight: bolder; color:rgb(8, 81, 123)" for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-family: Satisfy, serif; font-weight: bolder; color:rgb(8, 81, 123)" for="province">المحافظة</label>
+                        <input type="text" id="province" name="province" aria-required="false">
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div style="font-family: Satisfy, serif; font-weight: bolder" class="section-title">معلومات التخرج</div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)" for="branch">فرع التخرج</label>
+                        <select id="branch" name="branch" required aria-required="true">
+                            <option value="" disabled selected>-- اختر الفرع --</option>
+                            <option value="علمي">علمي</option>
+                            <option value="ادبي">ادبي</option>
+                            <option value="صناعة">صناعة</option>
+                            <option value="تجارة">تجارة</option>
+                            <option value="معهد معلمين">معهد معلمين</option>
+                            <option value="معهد شرطة">معهد شرطة</option>
+                            <option value="الحاسوب وتقنية المعلومات">الحاسوب وتقنية المعلومات</option>
+                            <option value="اخرى">اخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)" for="highSchoolAverage">معدل التخرج من الدراسة الإعدادية</label>
+                        <input type="number" id="highSchoolAverage" name="highSchoolAverage" step="0.01" min="50" max="100" required aria-required="true" placeholder="مثال: 85.50">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)" for="examnumber">الرقم الامتحاني (يرجى كتابة 0 اذا لم يتوفر):</label>
+                        <input type="text" id="examnumber" name="examnumber" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)" for="secretnumber">الرقم الســــــــري (يرجى كتابة 0 اذا لم يتوفر):</label>
+                        <input type="text" id="secretnumber" name="secretnumber" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                     <label style="color: rgb(8, 81, 123)" for="highSchoolGradYear">سنة التخرج من الدراسة الإعدادية:</label>
+                     <select id="highSchoolGradYear" name="highSchoolGradYear" required aria-required="true">
+                       <option value="" disabled selected>-- اختر السنة --</option>
+                       <option value="2025">2025</option>
+                       <option value="2024">2024</option>
+                       <option value="2023">2023</option>
+                       <option value="2022">2022</option>
+                       <option value="2021">2021</option>
+                       <option value="2020">2020</option>
+                       <option value="2019">2019</option>
+                       <option value="2018">2018</option>
+                       <option value="2017">2017</option>
+                       <option value="2016">2016</option>
+                       <option value="2015">2015</option>
+                       <option value="2014">2014</option>
+                       <option value="2013">2013</option>
+                       <option value="2012">2012</option>
+                       <option value="2011">2011</option>
+                       <option value="2010">2010</option>
+                       <option value="2009">2009</option>
+                       <option value="2008">2008</option>
+                       <option value="2007">2007</option>
+                       <option value="2006">2006</option>
+                       <option value="2005">2005</option>
+                       <option value="2004">2004</option>
+                       <option value="2003">2003</option>
+                       <option value="2002">2002</option>
+                       <option value="2001">2001</option>
+                       <option value="2000">2000</option>
+                       <option value="1999">1999</option>
+                       <option value="1998">1998</option>
+                       <option value="1997">1997</option>
+                       <option value="1996">1996</option>
+                       <option value="1995">1995</option>
+                       <option value="1994">1994</option>
+                       <option value="1993">1993</option>
+                       <option value="1992">1992</option>
+                       <option value="1991">1991</option>
+                       <option value="1990">1990</option>
+                       <option value="1989">1989</option>
+                       <option value="1988">1988</option>
+                       <option value="1987">1987</option>
+                       <option value="1986">1986</option>
+                       <option value="1985">1985</option>
+                       <option value="1984">1984</option>
+                       <option value="1983">1983</option>
+                       <option value="1982">1982</option>
+                       <option value="1981">1981</option>
+                       <option value="1980">1980</option>
+                       <option value="1979">1979</option>
+                       <option value="1978">1978</option>
+                       <option value="1977">1977</option>
+                       <option value="1976">1976</option>
+                       <option value="1975">1975</option>
+                     </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)" for="graduationRound">دور التخرج:</label>
+                        <select id="graduationRound" name="graduationRound" required aria-required="true">
+                            <option value="" disabled selected>-- اختر الدور --</option>
+                            <option value="الاول">الاول</option>
+                            <option value="الثاني">الثاني</option>
+                            <option value="الثالث">الثالث</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)">هل الطالب خريج معهد بعد الإعدادية؟</label>
+                        <div class="radio-group-container">
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="instituteGradYes" name="instituteGrad" value="نعم" required aria-required="true">
+                                    <label for="instituteGradYes">نعم</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="instituteGradNo" name="instituteGrad" value="كلا">
+                                    <label for="instituteGradNo">كلا</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: rgb(8, 81, 123)">هل الطالب من ذوي الشهداء؟ (يرجى إبراز وثائق إثبات)</label>
+                        <div class="radio-group-container">
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="martyrsFamilyYes" name="martyrsFamily" value="نعم" required aria-required="true">
+                                    <label for="martyrsFamilyYes">نعم</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="martyrsFamilyNo" name="martyrsFamily" value="كلا">
+                                    <label for="martyrsFamilyNo">كلا</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                     <label style="color: rgb(8, 81, 123)" for="desiredColleges">الكليات التي يرغب الطالب بالتقديم لها:</label>
+                     <div style="width:100%;">
+                         <div class="college-row">
+                             <div class="college-select">
+                                 <select id="college1" name="college1" required aria-required="true">
+                                 <option value="" disabled selected>-- الخيار الأول --</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية الصيدلة">كلية الصيدلة</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية طب الاسنان">كلية طب الاسنان</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التمريض">كلية التمريض</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية القانون">كلية القانون</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التربية الرياضية">كلية التربية الرياضية</option>
+                                 <option value="" disabled selected>-- كلية التقنيات الصحية والطبية --</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الاشعة">تقنيات الاشعة</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات المختبرات الطبية">تقنيات المختبرات الطبية</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات طب الطوارئ">تقنيات طب الطوارئ</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات التخدير">تقنيات التخدير</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات صناعة الاسنان">تقنيات صناعة الاسنان</option>
+                                 <option style="color: rgb(158, 34, 34);" value="قسم تقنيات البصريات">قسم تقنيات البصريات</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الصناعات الدوائية">تقنيات الصناعات الدوائية</option>
+                                 <option value="" disabled selected>-- كلية الهندسة --</option>
+                                 <option style="color: rgb(81, 146, 32);" value="قسم هندسة الطب الحياتي">هندسة الطب الحياتي</option>
+                                 <option style="color: rgb(81, 146, 32);" value="هندســــة المساحـــة">هندســــة المساحـــة</option>
+                                 <option value="" disabled selected>-- الكلية التقنية الهندسية --</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة البناء والانشاءات">تقنيات هندسة البناء والانشاءات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الكهرباء">تقنيات هندسة الكهرباء</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الامن السيبراني">تقنيات هندسة الامن السيبراني</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الاجهزة الطبية">تقنيات هندسة الاجهزة الطبية</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الحاسبات">تقنيات هندسة الحاسبات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الفيزياء طبية">تقنيات هندسة الفيزياء طبية</option>
+                                 <option value="" disabled selected>-- كلية العلوم --</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الادلة الجنائية">علوم الادلة الجنائية</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الذكاء الاصطناعي">علوم الذكاء الاصطناعي</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الطاقة المتجددة">علوم الطاقة المتجددة</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم السياحة">علوم السياحة</option>
+                                 <option value="" disabled selected>-- كلية الادارة والاقتصاد --</option>
+                                 <option style="color: rgb(159, 77, 182);" value="قسم اقتصاديات النفط والغاز">اقتصاديات النفط والغاز</option>
+                                 <option style="color: rgb(159, 77, 182);" value="المحاسبة">المحاسبة</option>
+                                 <option style="color: rgb(159, 77, 182);" value="ادارة التسويق">ادارة التسويق</option>
+                                 <option value="" disabled selected>-- كلية الفنون الجميلة --</option>
+                                 <option style="color: rgb(220, 35, 121);" value="التصميم الداخلي">التصميم الداخلي</option>
+                                 <option value="" disabled selected>-- كلية التربية --</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة الانكليزية">اللغة الانكليزية</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة العربية">اللغة العربية</option>
+                                 <option value="" disabled selected>-- الخيار الأول --</option>
+                                 </select>
+                             </div>
+                             <div class="college-select">
+                                 <select id="college2" name="college2" required aria-required="true">
+                                 <option value="" disabled selected>-- الخيار الثاني --</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية الصيدلة">كلية الصيدلة</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية طب الاسنان">كلية طب الاسنان</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التمريض">كلية التمريض</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية القانون">كلية القانون</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التربية الرياضية">كلية التربية الرياضية</option>
+                                 <option value="" disabled selected>-- كلية التقنيات الصحية والطبية --</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الاشعة">تقنيات الاشعة</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات المختبرات الطبية">تقنيات المختبرات الطبية</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات طب الطوارئ">تقنيات طب الطوارئ</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات التخدير">تقنيات التخدير</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات صناعة الاسنان">تقنيات صناعة الاسنان</option>
+                                 <option style="color: rgb(158, 34, 34);" value="قسم تقنيات البصريات">قسم تقنيات البصريات</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الصناعات الدوائية">تقنيات الصناعات الدوائية</option>
+                                 <option value="" disabled selected>-- كلية الهندسة --</option>
+                                 <option style="color: rgb(81, 146, 32);" value="قسم هندسة الطب الحياتي">هندسة الطب الحياتي</option>
+                                 <option style="color: rgb(81, 146, 32);" value="هندســــة المساحـــة">هندســــة المساحـــة</option>
+                                 <option value="" disabled selected>-- الكلية التقنية الهندسية --</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة البناء والانشاءات">تقنيات هندسة البناء والانشاءات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الكهرباء">تقنيات هندسة الكهرباء</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الامن السيبراني">تقنيات هندسة الامن السيبراني</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الاجهزة الطبية">تقنيات هندسة الاجهزة الطبية</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الحاسبات">تقنيات هندسة الحاسبات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الفيزياء طبية">تقنيات هندسة الفيزياء طبية</option>
+                                 <option value="" disabled selected>-- كلية العلوم --</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الادلة الجنائية">علوم الادلة الجنائية</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الذكاء الاصطناعي">علوم الذكاء الاصطناعي</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الطاقة المتجددة">علوم الطاقة المتجددة</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم السياحة">علوم السياحة</option>
+                                 <option value="" disabled selected>-- كلية الادارة والاقتصاد --</option>
+                                 <option style="color: rgb(159, 77, 182);" value="قسم اقتصاديات النفط والغاز">اقتصاديات النفط والغاز</option>
+                                 <option style="color: rgb(159, 77, 182);" value="المحاسبة">المحاسبة</option>
+                                 <option style="color: rgb(159, 77, 182);" value="ادارة التسويق">ادارة التسويق</option>
+                                 <option value="" disabled selected>-- كلية الفنون الجميلة --</option>
+                                 <option style="color: rgb(220, 35, 121);" value="التصميم الداخلي">التصميم الداخلي</option>
+                                 <option value="" disabled selected>-- كلية التربية --</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة الانكليزية">اللغة الانكليزية</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة العربية">اللغة العربية</option>
+                                 <option value="" disabled selected>-- الخيار الثاني --</option>
+                                 </select>
+                             </div>
+                         </div>
+                         <div class="college-row">
+                             <div class="college-select">
+                                 <select id="college3" name="college3" required aria-required="true">
+                                 <option value="" disabled selected>-- الخيار الثالث --</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية الصيدلة">كلية الصيدلة</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية طب الاسنان">كلية طب الاسنان</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التمريض">كلية التمريض</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية القانون">كلية القانون</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التربية الرياضية">كلية التربية الرياضية</option>
+                                 <option value="" disabled selected>-- كلية التقنيات الصحية والطبية --</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الاشعة">تقنيات الاشعة</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات المختبرات الطبية">تقنيات المختبرات الطبية</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات طب الطوارئ">تقنيات طب الطوارئ</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات التخدير">تقنيات التخدير</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات صناعة الاسنان">تقنيات صناعة الاسنان</option>
+                                 <option style="color: rgb(158, 34, 34);" value="قسم تقنيات البصريات">قسم تقنيات البصريات</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الصناعات الدوائية">تقنيات الصناعات الدوائية</option>
+                                 <option value="" disabled selected>-- كلية الهندسة --</option>
+                                 <option style="color: rgb(81, 146, 32);" value="قسم هندسة الطب الحياتي">هندسة الطب الحياتي</option>
+                                 <option style="color: rgb(81, 146, 32);" value="هندســــة المساحـــة">هندســــة المساحـــة</option>
+                                 <option value="" disabled selected>-- الكلية التقنية الهندسية --</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة البناء والانشاءات">تقنيات هندسة البناء والانشاءات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الكهرباء">تقنيات هندسة الكهرباء</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الامن السيبراني">تقنيات هندسة الامن السيبراني</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الاجهزة الطبية">تقنيات هندسة الاجهزة الطبية</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الحاسبات">تقنيات هندسة الحاسبات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الفيزياء طبية">تقنيات هندسة الفيزياء طبية</option>
+                                 <option value="" disabled selected>-- كلية العلوم --</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الادلة الجنائية">علوم الادلة الجنائية</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الذكاء الاصطناعي">علوم الذكاء الاصطناعي</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الطاقة المتجددة">علوم الطاقة المتجددة</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم السياحة">علوم السياحة</option>
+                                 <option value="" disabled selected>-- كلية الادارة والاقتصاد --</option>
+                                 <option style="color: rgb(159, 77, 182);" value="قسم اقتصاديات النفط والغاز">اقتصاديات النفط والغاز</option>
+                                 <option style="color: rgb(159, 77, 182);" value="المحاسبة">المحاسبة</option>
+                                 <option style="color: rgb(159, 77, 182);" value="ادارة التسويق">ادارة التسويق</option>
+                                 <option value="" disabled selected>-- كلية الفنون الجميلة --</option>
+                                 <option style="color: rgb(220, 35, 121);" value="التصميم الداخلي">التصميم الداخلي</option>
+                                 <option value="" disabled selected>-- كلية التربية --</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة الانكليزية">اللغة الانكليزية</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة العربية">اللغة العربية</option>
+                                 <option value="" disabled selected>-- الخيار الثالث --</option>
+                                 </select>
+                             </div>
+                             <div class="college-select">
+                                 <select id="college4" name="college4" required aria-required="true">
+                                 <option value="" disabled selected>-- الخيار الرابع --</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية الصيدلة">كلية الصيدلة</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية طب الاسنان">كلية طب الاسنان</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التمريض">كلية التمريض</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية القانون">كلية القانون</option>
+                                 <option style="color: rgb(34, 121, 148);" value="كلية التربية الرياضية">كلية التربية الرياضية</option>
+                                 <option value="" disabled selected>-- كلية التقنيات الصحية والطبية --</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الاشعة">تقنيات الاشعة</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات المختبرات الطبية">تقنيات المختبرات الطبية</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات طب الطوارئ">تقنيات طب الطوارئ</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات التخدير">تقنيات التخدير</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات صناعة الاسنان">تقنيات صناعة الاسنان</option>
+                                 <option style="color: rgb(158, 34, 34);" value="قسم تقنيات البصريات">قسم تقنيات البصريات</option>
+                                 <option style="color: rgb(158, 34, 34);" value="تقنيات الصناعات الدوائية">تقنيات الصناعات الدوائية</option>
+                                 <option value="" disabled selected>-- كلية الهندسة --</option>
+                                 <option style="color: rgb(81, 146, 32);" value="قسم هندسة الطب الحياتي">هندسة الطب الحياتي</option>
+                                 <option style="color: rgb(81, 146, 32);" value="هندســــة المساحـــة">هندســــة المساحـــة</option>
+                                 <option value="" disabled selected>-- الكلية التقنية الهندسية --</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة البناء والانشاءات">تقنيات هندسة البناء والانشاءات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الكهرباء">تقنيات هندسة الكهرباء</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الامن السيبراني">تقنيات هندسة الامن السيبراني</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الاجهزة الطبية">تقنيات هندسة الاجهزة الطبية</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الحاسبات">تقنيات هندسة الحاسبات</option>
+                                 <option style="color: rgb(135, 179, 102);" value="تقنيات هندسة الفيزياء طبية">تقنيات هندسة الفيزياء طبية</option>
+                                 <option value="" disabled selected>-- كلية العلوم --</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الادلة الجنائية">علوم الادلة الجنائية</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الذكاء الاصطناعي">علوم الذكاء الاصطناعي</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم الطاقة المتجددة">علوم الطاقة المتجددة</option>
+                                 <option style="color: rgb(77, 177, 182);" value="علوم السياحة">علوم السياحة</option>
+                                 <option value="" disabled selected>-- كلية الادارة والاقتصاد --</option>
+                                 <option style="color: rgb(159, 77, 182);" value="قسم اقتصاديات النفط والغاز">اقتصاديات النفط والغاز</option>
+                                 <option style="color: rgb(159, 77, 182);" value="المحاسبة">المحاسبة</option>
+                                 <option style="color: rgb(159, 77, 182);" value="ادارة التسويق">ادارة التسويق</option>
+                                 <option value="" disabled selected>-- كلية الفنون الجميلة --</option>
+                                 <option style="color: rgb(220, 35, 121);" value="التصميم الداخلي">التصميم الداخلي</option>
+                                 <option value="" disabled selected>-- كلية التربية --</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة الانكليزية">اللغة الانكليزية</option>
+                                 <option style="color: rgb(220, 35, 35);" value="قسم اللغة العربية">اللغة العربية</option>
+                                 <option value="" disabled selected>-- الخيار الرابع --</option>
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                    </div>
+                <div class="form-group">
+                     <label style="color: rgb(8, 81, 123)" for="studyType">نوع الدراسة:</label>
+                     <select id="studyType" name="studyType" required aria-required="true">
+                     <option value="" disabled selected>-- اختر النوع --</option>
+                     <option value="الصباحية">الصباحية</option>
+                     <option value="المسائية">المسائية</option>
+                     </select>
+                </div>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="submit-btn">إرسال الطلب</button>
+                    <div class="loading" id="loadingIndicator">
+                        <div class="loading-spinner"></div>
+                        <p>جاري معالجة طلبك...</p>
+                    </div>
+                </div>
+                 <footer class="container-fluid footer_section">
+                 <p>
+                 &copy; <a style="font-family: Satisfy, serif; font-weight: bolder; color: brown;"> 2025 </a><br>
+                 <a style="font-weight: bolder">All right reserved by Almustafa University</a><br>
+                 <a style="font-family: Satisfy, serif; font-weight: bolder; color: brown;"> A. S. A. </a>
+                 </p>
+                 </footer>
+            </form>
+        </div>
+    </div>
+    <div class="notification success" id="successNotification"><span class="notification-icon">✓</span><span>تمت عملية الإرسال بنجاح!</span></div>
+    <div class="notification error" id="errorNotification"><span class="notification-icon">✗</span><span>لم يتم الإرسال، يرجى المحاولة مرة أخرى.</span></div>
+    <div class="notification warning" id="warningNotification"><span class="notification-icon">⚠</span><span>يوجد خطأ في بعض الحقول، يرجى مراجعتها.</span></div>
+    <script>
+        // كشف iOS / iPadOS أكثر دقة
+        function detectIOS() {
+          const ua = navigator.userAgent || navigator.vendor || window.opera;
+          const isIOSUA = /iPad|iPhone|iPod/.test(ua);
+          const isMacTouch = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+          return isIOSUA || isMacTouch;
+        }
+        if (detectIOS()) document.documentElement.classList.add('is-ios');
+
+        // إدارة إرسال النموذج
+        document.getElementById('studentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            if (!validateForm()) { showNotification('warning'); return; }
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const submitButton = document.querySelector('.submit-btn');
+            loadingIndicator.style.display = 'block'; submitButton.disabled = true;
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('province', document.getElementById('province').value);
+            formData.append('branch', document.getElementById('branch').value);
+            formData.append('highSchoolAverage', document.getElementById('highSchoolAverage').value);
+            formData.append('examnumber', document.getElementById('examnumber').value);
+            formData.append('secretnumber', document.getElementById('secretnumber').value);
+            formData.append('highSchoolGradYear', document.getElementById('highSchoolGradYear').value);
+            formData.append('graduationRound', document.getElementById('graduationRound').value);
+            formData.append('instituteGrad', document.querySelector('input[name="instituteGrad"]:checked')?.value || '');
+            formData.append('martyrsFamily', document.querySelector('input[name="martyrsFamily"]:checked')?.value || '');
+            formData.append('college1', document.getElementById('college1').value);
+            formData.append('college2', document.getElementById('college2').value);
+            formData.append('college3', document.getElementById('college3').value);
+            formData.append('college4', document.getElementById('college4').value);
+            formData.append('studyType', document.getElementById('studyType').value);
+            try {
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzofSzWOk_4DpaUkfTSbveZN3PaPVQZowPTAM1D5FCnjGTFLwuRIPR0-dSaLzkELs3cyw/exec';
+                const response = await fetch(scriptURL, { method: 'POST', body: formData });
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.result === "success") { showNotification('success'); document.getElementById('studentForm').reset(); }
+                    else { console.error('Error:', result.message); showNotification('error'); }
+                } else { console.error('HTTP Error:', response.status); showNotification('error'); }
+            } catch (error) { console.error('Network Error:', error); showNotification('error'); }
+            finally { loadingIndicator.style.display = 'none'; submitButton.disabled = false; }
+        });
+
+        function validateForm(){
+            const requiredFields = [ document.getElementById('name'), document.getElementById('phone'), document.getElementById('branch'), document.getElementById('highSchoolAverage'), document.getElementById('examnumber'), document.getElementById('secretnumber'), document.getElementById('highSchoolGradYear'), document.getElementById('graduationRound'), document.getElementById('college1'), document.getElementById('college2'), document.getElementById('college3'), document.getElementById('college4'), document.getElementById('studyType') ];
+            let isValid = true;
+            for (let field of requiredFields) { if (!field.value) { field.style.borderColor = '#e74c3c'; isValid = false; } else { field.style.borderColor = '#ddd'; } }
+            const average = document.getElementById('highSchoolAverage'); if (average.value && (average.value < 0 || average.value > 100)) { average.style.borderColor = '#e74c3c'; isValid = false; }
+            const instituteGradChecked = document.querySelector('input[name="instituteGrad"]:checked'); const martyrsFamilyChecked = document.querySelector('input[name="martyrsFamily"]:checked'); if (!instituteGradChecked || !martyrsFamilyChecked) isValid = false; return isValid;
+        }
+        function showNotification(type){ document.querySelectorAll('.notification').forEach(n=>n.classList.remove('show')); let notification; switch(type){ case 'success': notification=document.getElementById('successNotification'); break; case 'error': notification=document.getElementById('errorNotification'); break; case 'warning': notification=document.getElementById('warningNotification'); break; } if(notification){ notification.classList.add('show'); setTimeout(()=>notification.classList.remove('show'),5000); } }
+        // تأثيرات للتركيز (بدون transform)
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => { input.addEventListener('focus', function(){ this.parentElement.classList.add('focused'); }); input.addEventListener('blur', function(){ this.parentElement.classList.remove('focused'); }); });
+        const radioButtons = document.querySelectorAll('input[type="radio"]'); radioButtons.forEach(radio => { radio.addEventListener('keypress', function(e){ if (e.key === 'Enter' || e.keyCode === 13) this.checked = true; }); });
+
+        // تحسين فتح الـpicker على بعض نسخ iOS: force focus on touchstart
+        document.querySelectorAll('select').forEach(s => {
+          s.addEventListener('touchstart', function(){ try{ this.focus(); }catch(e){} }, {passive:true});
+        });
+    </script>
+</body>
+</html>
